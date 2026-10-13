@@ -46,7 +46,9 @@ Benjamin Olsen`,
     id: 'S02',
     applicant: 'Siri',
     title: 'Søknad fra Siri',
-    text: `Jeg heter Siri, er 24 år, fra Molde og har en bachelor i administrasjon og ledelse fra Høgskolen på Vestlandet. Stillingen som prosjektkoordinator hos Viro virker spennende fordi jeg ønsker å bruke utdanningen min i en praktisk rolle med ansvar for planlegging og oppfølging. Muligheten til å bidra i ulike prosjekter, samarbeide med andre og utvikle meg faglig gjør at denne rollen hadde kledd meg godt.
+    text: `Hei,
+
+Jeg heter Siri, er 24 år, fra Molde og har en bachelor i administrasjon og ledelse fra Høgskolen på Vestlandet. Stillingen som prosjektkoordinator hos Viro virker spennende fordi jeg ønsker å bruke utdanningen min i en praktisk rolle med ansvar for planlegging og oppfølging. Muligheten til å bidra i ulike prosjekter, samarbeide med andre og utvikle meg faglig gjør at denne rollen hadde kledd meg godt.
 
 Som bemanningsansvarlig for studentbaren Kronbar, fikk jeg erfaring med koordinering og samarbeid i et aktivt studentmiljø. Rollen krevde oversikt, tydelig kommunikasjon og evne til å håndtere ulike situasjoner. Erfaringen har gitt meg et godt grunnlag for oppfølging av arbeidsoppgaver og at aktiviteter gjennomføres som planlagt.
 
@@ -59,11 +61,16 @@ Siri Hansen`,
     id: 'S03',
     applicant: 'Ola',
     title: 'Søknad fra Ola',
-    text: `Jeg heter Ola, er 26 år og kommer fra Oslo. Med en bachelor i administrasjon og ledelse fra Høgskulen på Vestlandet ønsker jeg nå å bruke utdanningen min i en praktisk og variert arbeidshverdag. Stillingen som prosjektkoordinator hos Viro virker spesielt interessant fordi den kombinerer struktur, samarbeid og koordinering – områder jeg trives godt med og ønsker å utvikle meg videre innen.
+    text: `Hei,
+
+Jeg heter Ola, er 26 år og kommer fra Oslo. Med en bachelor i administrasjon og ledelse fra Høgskulen på Vestlandet ønsker jeg nå å bruke utdanningen min i en praktisk og variert arbeidshverdag. Stillingen som prosjektkoordinator hos Viro virker spesielt interessant fordi den kombinerer struktur, samarbeid og koordinering – områder jeg trives godt med og ønsker å utvikle meg videre innen.
 
 Gjennom erfaring som redaktør for studentradioen har jeg fått god erfaring med å koordinere mennesker, planlegge aktiviteter og følge opp oppgaver og tidsfrister. Rollen krevde tydelig kommunikasjon og evnen til å holde oversikt over flere oppgaver samtidig. Som skiftleder hos Digg Pizza har jeg i tillegg fått erfaring med ansvar, problemløsning og koordinering i en hektisk arbeidshverdag.
 
-Jeg er strukturert, initiativrik og liker å samarbeide med andre. Gjennom både studentradioen og arbeidslivet har jeg blitt vant til å møte ulike mennesker og bidra til et godt arbeidsmiljø. Jeg arbeider samtidig godt selvstendig og tar gjerne ansvar for å få oppgaver gjennomført.`,
+Jeg er strukturert, initiativrik og liker å samarbeide med andre. Gjennom både studentradioen og arbeidslivet har jeg blitt vant til å møte ulike mennesker og bidra til et godt arbeidsmiljø. Jeg arbeider samtidig godt selvstendig og tar gjerne ansvar for å få oppgaver gjennomført.
+
+Med vennlig hilsen,
+Ola Berg`,
   },
 ]
 
