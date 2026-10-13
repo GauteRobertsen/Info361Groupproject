@@ -18,7 +18,8 @@ npm run dev
 ## Sette opp Supabase
 
 1. Åpne prosjektet `Info361Groupproject` -> **SQL Editor**.
-2. Lim inn og kjør hele `supabase/schema.sql`.
+2. Lim inn og kjør hele `supabase/schema.sql`. Filen kan kjøres flere ganger; har
+   dere kjørt en eldre versjon, legges nye kolonner til uten at data går tapt.
 3. Hent **Project URL** og **anon / publishable key** under *Project Settings -> API*
    og legg dem i `.env.local` (lokalt) og som miljøvariabler hos hostingen.
    Bruk aldri `service_role`/secret-nøkkelen i frontend.
@@ -50,6 +51,7 @@ Dette er testet mot Postgres 16: insert som `anon` lykkes, mens `SELECT`, `UPDAT
 | `highlights` | Markerte tekstbiter: `[{start, end, text, comment}]`. |
 | `judgement` | `menneske`, `ki` eller `ki_redigert`. |
 | `reasoning` | Skriftlig begrunnelse. |
+| `invited_to_interview` | Om deltakeren ville kalt inn søkeren til intervju (siste steg). Alle `false` = «Ingen av dem». |
 | `submitted_at` | Tidspunkt for innsending (settes av databasen). |
 
 Ingenting sendes før deltakeren trykker «Send inn svarene». Appen bruker ikke
@@ -57,8 +59,9 @@ cookies eller localStorage, og sender ikke referrer.
 
 ## Søknadstekstene
 
-`src/data/applications.js` inneholder **plassholdere**. Bytt dem ut med gruppas
-egne fiktive søknader. Merk:
+`src/data/applications.js` inneholder stillingsannonsen (Prosjektkoordinator hos
+Viro) og de tre søknadene. Deltakerne ser annonsen før søknadene, og kan åpne den
+igjen over hver søknad. Merk:
 
 - Fasiten (hvilken kategori hver søknad hører til) skal ikke ligge i koden, fordi
   alt i frontend kan leses i nettleseren. Hold den i et eget ark på OneDrive og

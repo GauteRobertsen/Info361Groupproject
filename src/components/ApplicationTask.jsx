@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import HighlightableText from './HighlightableText.jsx'
+import { JobAdDetails } from './JobAd.jsx'
 import { JUDGEMENT_OPTIONS } from '../options.js'
 
-export default function ApplicationTask({ application, answer, onChange, position, total, onBack, onNext, isLast }) {
+export default function ApplicationTask({ application, answer, onChange, position, total, onBack, onNext }) {
   const [activeIndex, setActiveIndex] = useState(null)
   const [showErrors, setShowErrors] = useState(false)
 
@@ -39,6 +40,7 @@ export default function ApplicationTask({ application, answer, onChange, positio
         Søknad {position} av {total}
       </p>
       <h2>{application.title}</h2>
+      <JobAdDetails />
 
       <ol className="instructions">
         <li>Les søknaden.</li>
@@ -114,7 +116,7 @@ export default function ApplicationTask({ application, answer, onChange, positio
           Tilbake
         </button>
         <button type="button" onClick={handleNext}>
-          {isLast ? 'Send inn svarene' : 'Neste søknad'}
+          Neste
         </button>
       </div>
     </section>

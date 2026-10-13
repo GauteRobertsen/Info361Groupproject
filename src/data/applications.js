@@ -1,10 +1,6 @@
-// Søknadene deltakerne skal vurdere.
+// Stillingsannonsen og søknadene deltakerne skal vurdere.
 //
 // VIKTIG:
-// - Tekstene under er PLASSHOLDERE. Bytt dem ut med gruppas egne fiktive
-//   søknader før studien starter.
-// - Søknader i kategorien "skrevet av menneske" må faktisk være skrevet av et
-//   menneske, ellers blir resultatene ugyldige.
 // - Fasiten (hvilken kategori hver søknad tilhører) skal IKKE ligge her.
 //   Alt i denne filen havner i JavaScript-koden som sendes til deltakerens
 //   nettleser og kan leses der. Hold fasiten i et eget dokument på UiB
@@ -12,51 +8,65 @@
 // - `id` lagres sammen med svarene, så ikke endre en id etter at
 //   datainnsamlingen har startet.
 
+export const jobAd = {
+  title: 'Prosjektkoordinator hos Viro',
+  intro:
+    'Vi søker en strukturert og engasjert prosjektkoordinator som ønsker å bidra til planlegging og gjennomføring av ulike prosjekter i virksomheten.',
+  tasks:
+    'Arbeidsoppgavene vil blant annet innebære koordinering av aktiviteter, oppfølging av oppgaver og tidsfrister, kommunikasjon med kollegaer og samarbeidspartnere og generelt administrativt arbeid.',
+  requirementsIntro: 'Vi ser etter deg som:',
+  requirements: [
+    'Har gode kommunikasjons- og samarbeidsevner',
+    'Arbeider strukturert og selvstendig',
+    'Tar initiativ og er løsningsorientert',
+    'Har gode digitale ferdigheter',
+    'Har relevant utdanning eller erfaring',
+  ],
+  offer:
+    'Vi tilbyr et inkluderende arbeidsmiljø, varierte arbeidsoppgaver og muligheter for faglig og personlig utvikling.',
+}
+
 export const applications = [
   {
     id: 'S01',
-    title: 'Søknad på stilling som butikkmedarbeider',
-    text: `Hei!
+    applicant: 'Benjamin',
+    title: 'Søknad fra Benjamin',
+    text: `Hei,
 
-Jeg søker på stillingen som butikkmedarbeider som jeg så på Finn. Jeg har jobbet to somre på en matbutikk hjemme i Førde, og der lærte jeg mye om å ha kontakt med kunder og å holde orden på varer og hyller.
+Jeg heter Benjamin, er 25 år gammel og kommer fra Bergen. Etter å ha lest meg opp, ser jeg at dere har et veldig engasjerende miljø med gode muligheter til å utvikle seg videre. Jeg er ivrig og har mye erfaring med teamarbeid, og tror derfor jeg kunne passet godt inn i denne stillingen.
 
-Jeg er en person som liker å ha mye å gjøre, og jeg trives best når det er travelt. Ved siden av studiene har jeg god tid på kvelder og i helger.
+Jeg har en bachelor innen administrasjon og ledelse fra Høgskolen på Vestlandet. Dette startet jeg fordi jeg trives godt å jobbe med mennesker og liker å jobbe systematisk. Tidligere har jeg vært avdelingsleder på Sabrura ved siden av studiene. Denne erfaringen har gitt meg god kompetanse innen samarbeid og ledelse. Her lærte jeg å løse mindre og større oppgaver, både for ansatte og besøkende i restauranten.
 
-Håper å høre fra dere!
+Jeg er utadvendt, aktiv og liker å være engasjert i sosiale miljøer rundt meg. Dette er noen av grunnene til at jeg meldte meg som leder i fadderstyret. Her fikk jeg nyttig erfaring med å organisere faddergrupper, opprettholde kontakt med bedrifter og ha overordnet blikk på flere tråder samtidig.
 
-Hilsen
-[Fiktiv søker A]`,
+Med vennlig hilsen,
+Benjamin Olsen`,
   },
   {
     id: 'S02',
-    title: 'Søknad på stilling som junior utvikler',
-    text: `Kjære rekrutteringsansvarlig,
+    applicant: 'Siri',
+    title: 'Søknad fra Siri',
+    text: `Jeg heter Siri, er 24 år, fra Molde og har en bachelor i administrasjon og ledelse fra Høgskolen på Vestlandet. Stillingen som prosjektkoordinator hos Viro virker spennende fordi jeg ønsker å bruke utdanningen min i en praktisk rolle med ansvar for planlegging og oppfølging. Muligheten til å bidra i ulike prosjekter, samarbeide med andre og utvikle meg faglig gjør at denne rollen hadde kledd meg godt.
 
-Med stor entusiasme søker jeg herved stillingen som junior utvikler i deres innovative team. Gjennom min bachelorgrad i informatikk har jeg utviklet et solid fundament innen programmering, problemløsning og samarbeid i tverrfaglige prosjekter.
+Som bemanningsansvarlig for studentbaren Kronbar, fikk jeg erfaring med koordinering og samarbeid i et aktivt studentmiljø. Rollen krevde oversikt, tydelig kommunikasjon og evne til å håndtere ulike situasjoner. Erfaringen har gitt meg et godt grunnlag for oppfølging av arbeidsoppgaver og at aktiviteter gjennomføres som planlagt.
 
-Jeg er en løsningsorientert og lærevillig person som trives i dynamiske miljøer. Jeg er overbevist om at min kombinasjon av teknisk kompetanse og gode samarbeidsevner vil gjøre meg til en verdifull ressurs for deres virksomhet.
+Jeg er strukturert og trives med å arbeide både selvstendig og i team. Gjennom engasjementet i Kronbar har jeg fått erfaring med å møte ulike mennesker og bidra til et godt sosialt miljø. Jeg tar gjerne initiativ, er opptatt av å finne gode løsninger og ønsker å være en kollega andre kan stole på. Hos Viro vil jeg bidra med engasjement, godt samarbeid og vilje til å lære.
 
-Jeg ser frem til muligheten for å utdype hvordan jeg kan bidra.
-
-Med vennlig hilsen
-[Fiktiv søker B]`,
+Med vennlig hilsen,
+Siri Hansen`,
   },
   {
     id: 'S03',
-    title: 'Søknad på stilling som barnehageassistent',
-    text: `Hei,
+    applicant: 'Ola',
+    title: 'Søknad fra Ola',
+    text: `Jeg heter Ola, er 26 år og kommer fra Oslo. Med en bachelor i administrasjon og ledelse fra Høgskulen på Vestlandet ønsker jeg nå å bruke utdanningen min i en praktisk og variert arbeidshverdag. Stillingen som prosjektkoordinator hos Viro virker spesielt interessant fordi den kombinerer struktur, samarbeid og koordinering – områder jeg trives godt med og ønsker å utvikle meg videre innen.
 
-Jeg vil gjerne søke på jobben som barnehageassistent. Jeg har tre års erfaring som assistent i en barnehage, der jeg har hatt ansvar for planlegging av aktiviteter og samarbeid med foreldre.
+Gjennom erfaring som redaktør for studentradioen har jeg fått god erfaring med å koordinere mennesker, planlegge aktiviteter og følge opp oppgaver og tidsfrister. Rollen krevde tydelig kommunikasjon og evnen til å holde oversikt over flere oppgaver samtidig. Som skiftleder hos Digg Pizza har jeg i tillegg fått erfaring med ansvar, problemløsning og koordinering i en hektisk arbeidshverdag.
 
-Det jeg liker best med jobben er å se barna utvikle seg fra dag til dag. Jeg er tålmodig, strukturert og opptatt av at alle barn skal bli sett.
-
-Jeg tror jeg kan bidra positivt i deres barnehage, og ser frem til å høre fra dere.
-
-Vennlig hilsen
-[Fiktiv søker C]`,
+Jeg er strukturert, initiativrik og liker å samarbeide med andre. Gjennom både studentradioen og arbeidslivet har jeg blitt vant til å møte ulike mennesker og bidra til et godt arbeidsmiljø. Jeg arbeider samtidig godt selvstendig og tar gjerne ansvar for å få oppgaver gjennomført.`,
   },
 ]
 
-// Hvor mange søknader hver deltaker skal vurdere. Søknadene trekkes i
+// Hvor mange søknader hver deltaker skal vurdere. Søknadene vises i
 // tilfeldig rekkefølge. Sett til `applications.length` for å vise alle.
 export const APPLICATIONS_PER_PARTICIPANT = applications.length

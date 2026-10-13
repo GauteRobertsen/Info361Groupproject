@@ -234,3 +234,20 @@ button.link {
     padding: 16px;
   }
 }
+
+.job-ad ul {
+  padding-left: 20px;
+}
+
+.job-ad-details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  background: #fcfcfd;
+}
+
+.job-ad-details summary {
+  cursor: pointer;
+  color: var(--accent);
+}

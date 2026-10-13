@@ -26,9 +26,16 @@ create table if not exists public.responses (
                    check (jsonb_typeof(highlights) = 'array' and pg_column_size(highlights) < 50000),
   reasoning        text        not null default ''
                    check (char_length(reasoning) <= 5000),
+  -- Om deltakeren ville kalt inn denne søkeren til intervju.
+  invited_to_interview boolean not null default false,
   submitted_at     timestamptz not null default now(),
   unique (participant_id, application_id)
 );
+
+-- Legger til kolonner som kom etter første versjon, i tilfelle tabellen
+-- allerede var opprettet. Gjør ingenting hvis kolonnen finnes.
+alter table public.responses
+  add column if not exists invited_to_interview boolean not null default false;
 
 -- ---------------------------------------------------------------------------
 -- Tilgangskontroll
