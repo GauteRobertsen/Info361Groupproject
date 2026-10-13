@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Intro from './components/Intro.jsx'
 import Demographics from './components/Demographics.jsx'
 import ApplicationTask from './components/ApplicationTask.jsx'
+import JobAd from './components/JobAd.jsx'
+import Interview from './components/Interview.jsx'
 import { applications, APPLICATIONS_PER_PARTICIPANT } from './data/applications.js'
 import { isConfigured, supabase } from './supabaseClient.js'
 
@@ -17,7 +19,7 @@ function shuffle(list) {
 const emptyAnswer = () => ({ highlights: [], judgement: '', reasoning: '' })
 
 // Bygger én rad per søknad. Bare feltene i supabase/schema.sql sendes.
-function buildRows(demographics, order, answers) {
+function buildRows(demographics, order, answers, interview) {
   const participantId = crypto.randomUUID()
   return order.map((app, i) => {
     const answer = answers[app.id]
@@ -35,16 +37,18 @@ function buildRows(demographics, order, answers) {
         comment: comment.trim(),
       })),
       reasoning: answer.reasoning.trim(),
+      invited_to_interview: interview.ids.includes(app.id),
     }
   })
 }
 
 export default function App() {
-  // Steg: 'intro' -> 'demographics' -> 0..n-1 (søknader) -> 'done'
+  // Steg: 'intro' -> 'demographics' -> 'job' -> 0..n-1 (søknader) -> 'interview' -> 'done'
   const [step, setStep] = useState('intro')
   const [order] = useState(() => shuffle(applications).slice(0, APPLICATIONS_PER_PARTICIPANT))
   const [demographics, setDemographics] = useState({ gender: '', ageGroup: '' })
   const [answers, setAnswers] = useState(() => Object.fromEntries(order.map((a) => [a.id, emptyAnswer()])))
+  const [interview, setInterview] = useState({ ids: [], none: false })
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(null)
 
@@ -68,7 +72,7 @@ export default function App() {
     try {
       if (!isConfigured) throw new Error('Supabase er ikke konfigurert (mangler VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY).')
       // Ingen .select() etter insert: anon har ikke lesetilgang.
-      const { error } = await supabase.from('responses').insert(buildRows(demographics, order, answers))
+      const { error } = await supabase.from('responses').insert(buildRows(demographics, order, answers, interview))
       if (error) throw error
       setStep('done')
     } catch (err) {
@@ -88,8 +92,25 @@ export default function App() {
         value={demographics}
         onChange={setDemographics}
         onBack={() => setStep('intro')}
-        onNext={() => setStep(0)}
+        onNext={() => setStep('job')}
       />
+    )
+  } else if (step === 'job') {
+    content = <JobAd onBack={() => setStep('demographics')} onNext={() => setStep(0)} />
+  } else if (step === 'interview') {
+    content = (
+      <>
+        <Interview
+          order={order}
+          value={interview}
+          onChange={setInterview}
+          onBack={() => setStep(order.length - 1)}
+          onSubmit={submit}
+          submitting={submitting}
+        />
+        {submitting && <p className="muted">Sender inn …</p>}
+        {submitError && <p className="error">{submitError}</p>}
+      </>
     )
   } else if (step === 'done') {
     content = (
@@ -100,23 +121,17 @@ export default function App() {
     )
   } else {
     const app = order[step]
-    const isLast = step === order.length - 1
     content = (
-      <>
-        <ApplicationTask
+      <ApplicationTask
           key={app.id}
           application={app}
           answer={answers[app.id]}
           onChange={(answer) => setAnswers((prev) => ({ ...prev, [app.id]: answer }))}
           position={step + 1}
           total={order.length}
-          isLast={isLast}
-          onBack={() => setStep(step === 0 ? 'demographics' : step - 1)}
-          onNext={() => (isLast ? submit() : setStep(step + 1))}
+          onBack={() => setStep(step === 0 ? 'job' : step - 1)}
+          onNext={() => setStep(step === order.length - 1 ? 'interview' : step + 1)}
         />
-        {submitting && <p className="muted">Sender inn …</p>}
-        {submitError && <p className="error">{submitError}</p>}
-      </>
     )
   }
 

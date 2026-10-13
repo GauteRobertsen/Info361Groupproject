@@ -13,6 +13,7 @@ select
   judgement,
   highlights::text as highlights,
   reasoning,
+  invited_to_interview,
   submitted_at
 from public.responses
 order by participant_id, display_order;
