@@ -87,3 +87,16 @@ kontroller antall rader, og slett så tabellen (eller hele prosjektet) i Supabas
   hvor hostingen behandler logger (Vercel/Netlify kan behandle data utenfor EU/EØS).
 - **Fritekst:** Deltakerne blir bedt om å ikke skrive identifiserende opplysninger
   i begrunnelsene. Se likevel gjennom fritekstfeltene før analyse.
+
+## Analyse
+
+`analysis/analyse.ipynb` viser svarene: treff mot fasit, hvem som ble kalt inn til
+intervju, varmekart over markeringene og alle svar deltaker for deltaker.
+
+1. Eksporter én rad per deltaker som CSV (spørringen med `json_agg` og kolonnen
+   `soknader`) og lagre den som `analysis/svar.csv`. CSV-filer er utelatt fra git.
+2. `pip install -r analysis/requirements.txt`
+3. Åpne notebooken i Jupyter, VS Code eller Google Colab og kjør alle cellene.
+
+Fasiten ligger i notebooken, ikke i nettsiden. Notebooken er lagret uten resultater,
+så ingen svar havner i GitHub. Ikke commit den etter at du har kjørt den.
